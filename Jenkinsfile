@@ -11,6 +11,7 @@ pipeline {
 
     options {                                // pipeline-wide behaviour
         disableConcurrentBuilds()  
+        timeout(time: 1, unit: 'SECONDS')
     }
 
 
