@@ -5,6 +5,10 @@ pipeline {
         }
     }
 
+     environment {                       // variables for every stage,its a global variable
+        COURSE = "Jenkins"
+    }
+
 
 // Build section
     stages {
@@ -13,6 +17,7 @@ pipeline {
                 script{
                     sh """
                        echo "Building"
+                       echo "Course is ${COURSE}"
                     
                     """
                        }
