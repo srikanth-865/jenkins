@@ -50,6 +50,13 @@ pipeline {
             }
         }
         stage('Deploy') {
+             input {
+                message "Do you want to proceed to deployment?"
+                ok "Approve Deployment"
+                submitter "admin,release-team" // Optional: Restrict who can approve
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'WHo should i say hello')
+                }
             steps {
                 script{
                     sh """
