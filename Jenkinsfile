@@ -50,11 +50,12 @@ pipeline {
             }
         }
         stage('Deploy') {
+            // second time applied
                 when {
                 // Evaluates the boolean parameter directly
                 expression { "${params.DEPLOY}" == "true" }
             }
-
+// first time applied
              /* input {
                 message "Do you want to proceed to deployment?"
                 ok "Approve Deployment"
