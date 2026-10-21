@@ -29,10 +29,10 @@ pipeline {
                     sh """
                        echo "Building"
                        echo "Course is ${COURSE}"
-                       echo "${params.PERSON}
-                        echo "${params.DEPLOY}
-                         echo "${params.CHOICE}
-                          echo "${params.PASSWORD}
+                       echo "${params.PERSON}"
+                        echo "${params.DEPLOY}"
+                         echo "${params.CHOICE}"
+                          echo "${params.PASSWORD}"
                     
                     """
                        }
@@ -57,6 +57,7 @@ pipeline {
                 parameters {
                     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'WHo should i say hello')
                 }
+             }
             steps {
                 script{
                     sh """
@@ -79,3 +80,4 @@ pipeline {
             
         }
      }
+}
