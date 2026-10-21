@@ -6,7 +6,7 @@ pipeline {
     }
 
 
-
+// Build section
     stages {
         stage('Build') {
             steps {
@@ -40,4 +40,16 @@ pipeline {
             }
         }
     }
-}
+ post{
+    always{
+        echo'i  always say hello agaain'
+    }
+    success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed!'
+            
+        }
+     }
+    }
