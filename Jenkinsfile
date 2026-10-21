@@ -11,9 +11,15 @@ pipeline {
 
     options {                                // pipeline-wide behaviour
         disableConcurrentBuilds()  
-        timeout(time: 1, unit: 'SECONDS')
+        timeout(time: 15, unit: 'MINUTES')
     }
 
+    parameters {                             // inputs asked at build time
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: '...')
+        booleanParam(name: 'DEPLOY', defaultValue: true, description: '...')
+        choice(name: 'CHOICE', choices: ['One','Two','Three'], description: '...')
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: '...')
+    }
 
 // Build section
     stages {
@@ -23,7 +29,10 @@ pipeline {
                     sh """
                        echo "Building"
                        echo "Course is ${COURSE}"
-                       sleep 5
+                       echo "${params.PERSON}
+                        echo "${params.DEPLOY}
+                         echo "${params.CHOICE}
+                          echo "${params.PASSWORD}
                     
                     """
                        }
