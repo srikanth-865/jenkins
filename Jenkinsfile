@@ -9,6 +9,10 @@ pipeline {
         COURSE = "Jenkins"
     }
 
+    options {                                // pipeline-wide behaviour
+        disableConcurrentBuilds()  
+    }
+
 
 // Build section
     stages {
