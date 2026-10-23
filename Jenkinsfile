@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'ROBOSHOP'
+            label 'ROBOSHOP' //we gave in jenkins UI for to match label for this name to run this pipeline
         }
     }
 
@@ -10,8 +10,8 @@ pipeline {
     }
 
     options {                                // pipeline-wide behaviour
-        disableConcurrentBuilds()  
-        timeout(time: 15, unit: 'MINUTES')
+        disableConcurrentBuilds()   //only onebuild runs at a time
+        timeout(time: 15, unit: 'MINUTES') // build complete atleas 15min
     }
 
     parameters {                             // inputs asked at build time
@@ -56,7 +56,7 @@ pipeline {
                 expression { "${params.DEPLOY}" == "true" }
             }
 // first time applied
-             /* input {
+             /* input {  // for approve any person we use input they approve in console true then deployment started
                 message "Do you want to proceed to deployment?"
                 ok "Approve Deployment"
                 submitter "admin,release-team" // Optional: Restrict who can approve
@@ -75,15 +75,16 @@ pipeline {
             }
         }
     }
+    // it always execute this post build even pipeline fails also
  post{
     always{
-        echo'i  always say hello agaain'
+        echo 'i  always say hello again'
     }
     success {
-            echo 'Build succeeded!'
+            echo 'Build is succeeded!'
         }
         failure {
-            echo 'Build failed!'
+            echo 'Build is  failed!'
             
         }
      }
