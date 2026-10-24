@@ -19,7 +19,7 @@ pipeline {
         booleanParam(name: 'DEPLOY', defaultValue: true, description: '...')
         choice(name: 'CHOICE', choices: ['One','Two','Three'], description: '...')
         password(name: 'PASSWORD', defaultValue: 'SECRET', description: '...')
-    }
+    }  
 
 // Build section
     stages {
