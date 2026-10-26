@@ -2,7 +2,7 @@
 
 //we are passing the key values wiht configmap name variable
 def configMap = [
-    name: "srikanth"
+    name: "srikanth",
     place: "kurnool"
 ]
 
